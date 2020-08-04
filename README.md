@@ -117,3 +117,4 @@ Pour la page d'accueil, ce serait quand même plus sympa d'avoir les potins dans
 # 3. Rendu attendu
 Une application the_gossip_project qui affiche quelques pages statiques, un système de landing pages personnalisées, un index et un show de potins. Le tout avec Bootstrap et un header qui a les bons liens.
 # Gossip04.08
+# Gossip04.08
