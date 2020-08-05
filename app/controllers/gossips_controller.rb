@@ -8,7 +8,14 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
   end
 
+  def edit
+  end
+
   def new
   end
+
+  def author
+  @user= User.find(params[:id])
+end
 
 end
