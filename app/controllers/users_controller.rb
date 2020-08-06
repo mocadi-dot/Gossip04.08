@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @city = City.all.order(:name)
   end
 
   def create
