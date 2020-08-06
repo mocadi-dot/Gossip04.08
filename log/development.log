@@ -6861,3 +6861,66 @@ Completed 200 OK in 210ms (Views: 14.5ms | ActiveRecord: 1.3ms)
   ↳ bin/rails:9
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2020-08-07 01:45:56 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:12
+  [1m[36mGossip Load (0.1ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  Rendered collection of gossips/_light.html.erb [0 times] (0.0ms)
+  Rendered gossips/_list.html.erb (0.5ms)
+  Rendered gossips/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 125ms (Views: 120.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/gossips/new" for 127.0.0.1 at 2020-08-07 01:45:58 +0200
+Processing by GossipsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:11
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2020-08-07 01:45:58 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 35ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2020-08-07 01:45:59 +0200
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (0.3ms)
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/views/users/_form.html.erb:36
+  Rendered users/_form.html.erb (67.0ms)
+  Rendered users/new.html.erb within layouts/application (68.8ms)
+Completed 200 OK in 103ms (Views: 90.3ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-08-07 01:46:18 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XdjQ8L8ITyb/4e3ydsbEvi8YXdrUzWOddSRmOZVWocBKCjyqGcAhAV0WetZQFEExgMxbI6gUBNpAk+CT+9JUcw==", "user"=>{"first_name"=>"Roger", "last_name"=>"Jeanbon", "email"=>"lol@nfjrfnr.com", "description"=>"vf", "age"=>"99", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Valider"}
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" ORDER BY "cities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lol@nfjrfnr.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/views/users/_form.html.erb:36
+  Rendered users/_form.html.erb (2.8ms)
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 212ms (Views: 15.8ms | ActiveRecord: 1.7ms)
+
+
