@@ -33,7 +33,7 @@
   </tr>
   <tr>
     <td> <%= form.label 'Ville' %> </td>
-    <td> <%= form.select(:city_id, City.all.map {|c| [c.name, c.id]}) %> </td>
+    <td> <%= form.select :city_id, City.all.map {|c| [c.name, c.id]} %> </td>
   </tr>
   <tr>
     <td> <%= form.label 'Mot de passe' %> </td>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    puts @user.city.id
+    #puts @user.city.id
   end
 
   def index
@@ -11,11 +11,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @city = City.all.order(:name)
+  #  @city = City.all.order(:name)
   end
 
   def create
     @user = User.new(user_params)
+    @user.city = City.first #.id à la fin ne fonctionne pas
     if @user.save
       log_in(@user)
       redirect_to @user
