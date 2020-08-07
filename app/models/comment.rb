@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
-  belongs_to :User,
-  
-  has_many :comments,
+  belongs_to :User
+
+  has_many :comments
 
   validates :content, presence: true
 

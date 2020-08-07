@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.city = City.first #.id à la fin ne fonctionne pas
+  #  @user.city_id = City.all.sample.id #.id à la fin ne fonctionne pas
     if @user.save
       log_in(@user)
       redirect_to @user
